@@ -15,6 +15,7 @@ export const TodoItem = props => {
       {props.name}
       <textarea className="todo-text" disabled value={props.text} />
       <p>Важность: {props.importance}</p>
+      <p>Дедлайн: {props.deadline}</p>
     </li>
   );
 };

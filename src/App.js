@@ -47,6 +47,12 @@ class App extends Component {
     });
   };
 
+  handleDateChange = e => {
+    this.setState({
+      currentDate: e.target.value
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const newId = generateId();
@@ -55,6 +61,7 @@ class App extends Component {
       name: this.state.currentTodo,
       text: this.state.currentTodoText,
       importance: this.state.currentImportance,
+      deadline: this.state.currentDate,
       isComplete: false
     };
     const updatedTodos = addTodo(this.state.todos, newTodo);
@@ -63,6 +70,7 @@ class App extends Component {
       currentTodo: "",
       currentTodoText: "",
       currentImportance: "высокая",
+      currentDate: "",
       errorMessage: ""
     });
     createTodo(newTodo).then(() => this.showTempMessage("Todo added"));
@@ -124,9 +132,11 @@ class App extends Component {
           handleInputChange={this.handleInputChange}
           handleTextChange={this.handleTextChange}
           handleImportanceChange={this.handleImportanceChange}
+          handleDateChange={this.handleDateChange}
           currentTodo={this.state.currentTodo}
           currentTodoText={this.state.currentTodoText}
           currentImportance={this.state.currentImportance}
+          currentDate={this.state.currentDate}
           handleSubmit={submitHandler}
         />
         <TodoList

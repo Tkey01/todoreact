@@ -28,7 +28,12 @@ export const TodoForm = props => {
           <option value="низкая">Низкая</option>
         </select>
         <p>Дедлайн</p>
-        <input className="todo-date" type="date" />
+        <input
+          className="todo-date"
+          type="date"
+          value={props.currentDate}
+          onChange={props.handleDateChange}
+        />
         <input className="todo-submit" type="submit" value="Добавить" />
       </form>
     </div>
