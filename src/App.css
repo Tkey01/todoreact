@@ -1,28 +1,125 @@
-.App {
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+body {
+  background-color: #f1f1f1;
+  font-size: 18px;
+  color: #333;
+}
+
+p {
+  text-indent: 10px;
+  margin-bottom: 10px;
+}
+
+.app {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.todo-form {
+  padding: 20px 50px;
+  margin-bottom: 20px;
+}
+
+.todo-list {
+  margin-left: 30px;
+}
+
+form {
+  max-width: 300px;
+}
+
+.todo-h {
+  width: 100%;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  font-size: 50px;
+  height: 100px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+.todo-name,
+.todo-select,
+.todo-date,
+.todo-text {
+  display: block;
+  width: 300px;
+  margin-bottom: 15px;
+  border: none;
+  font-size: 18px;
+  outline: none;
+  padding: 10px;
+  color: #333;
+}
+
+.todo-text {
+  resize: none;
+}
+
+.todo-submit {
+  display: block;
+  width: 130px;
+  height: 40px;
+  margin: 0 auto;
+  background-color: orange;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+}
+
+ul {
+  margin: auto;
+  overflow: auto;
+  padding-bottom: 70px;
+  padding-left: 0px;
+  width: 300px;
+}
+
+li {
+  font-size: 20px;
+  line-height: 1.8;
+  list-style-type: none;
+  text-align: left;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+.error,
+.success {
+  width: 100%;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.error {
+  color: #f96b85;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.success {
+  color: #84e70a;
 }
 
-.App-title {
-  font-size: 1.5em;
+span {
+  visibility: hidden;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+li:hover span {
+  cursor: pointer;
+  visibility: visible;
 }
