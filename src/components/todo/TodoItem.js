@@ -4,6 +4,7 @@ import { partial } from "../../lib/utils";
 export const TodoItem = props => {
   const handleToggle = partial(props.handleToggle, props.id);
   const handleRemove = partial(props.handleRemove, props.id);
+  const deadline = props.deadline ? props.deadline : "время неограничено";
   return (
     <li>
       <span onClick={handleRemove}>&#128465;</span>
@@ -15,7 +16,8 @@ export const TodoItem = props => {
       {props.name}
       <textarea className="todo-text" disabled value={props.text} />
       <p>Важность: {props.importance}</p>
-      <p>Дедлайн: {props.deadline}</p>
+
+      <p>Дедлайн: {deadline}</p>
     </li>
   );
 };

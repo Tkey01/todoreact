@@ -21,7 +21,8 @@ class App extends Component {
       currentTodo: "",
       currentTodoText: "",
       currentImportance: "высокая",
-      currentDate: ""
+      currentDate: "",
+      currentDeadline: false
     };
   }
 
@@ -53,6 +54,12 @@ class App extends Component {
     });
   };
 
+  handleDeadline = e => {
+    this.setState({
+      currentDeadline: e.target.checked
+    });
+  };
+
   handleSubmit = e => {
     e.preventDefault();
     const newId = generateId();
@@ -71,6 +78,7 @@ class App extends Component {
       currentTodoText: "",
       currentImportance: "высокая",
       currentDate: "",
+      currentDeadline: false,
       errorMessage: ""
     });
     createTodo(newTodo).then(() => this.showTempMessage("Todo added"));
@@ -133,10 +141,12 @@ class App extends Component {
           handleTextChange={this.handleTextChange}
           handleImportanceChange={this.handleImportanceChange}
           handleDateChange={this.handleDateChange}
+          handleDeadline={this.handleDeadline}
           currentTodo={this.state.currentTodo}
           currentTodoText={this.state.currentTodoText}
           currentImportance={this.state.currentImportance}
           currentDate={this.state.currentDate}
+          currentDeadline={this.state.currentDeadline}
           handleSubmit={submitHandler}
         />
         <TodoList

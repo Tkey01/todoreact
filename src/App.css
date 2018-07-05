@@ -67,6 +67,11 @@ form {
   resize: none;
 }
 
+.deadline-checkbox input {
+  margin-left: 10px;
+  transform: translateY(1px);
+}
+
 .todo-submit {
   display: block;
   width: 130px;
