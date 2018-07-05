@@ -11,6 +11,12 @@ export const TodoList = props => {
             key={todo.id}
             {...todo}
             handleRemove={props.handleRemove}
+            handleEdit={props.handleEdit}
+            currentEditState={props.currentEditState}
+            currentEditName={props.currentEditName}
+            currentEditText={props.currentEditText}
+            handleEditName={props.handleEditName}
+            handleEditText={props.handleEditText}
           />
         ))}
       </ul>

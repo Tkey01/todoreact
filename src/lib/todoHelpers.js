@@ -16,7 +16,7 @@ export const findById = (id, list) => {
 
 export const toggleTodo = todo => ({
   ...todo,
-  dateEnd: new Date().toLocaleString("ru"),
+  dateEnd: !todo.isComplete ? new Date().toLocaleString("ru") : "",
   isComplete: !todo.isComplete
 });
 

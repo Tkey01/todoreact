@@ -22,7 +22,13 @@ class App extends Component {
       currentTodoText: "",
       currentImportance: "высокая",
       currentDate: "",
-      currentDeadline: false
+      currentDeadline: false,
+      currentEditState: {
+        id: "",
+        edit: false
+      },
+      currentEditName: "",
+      currentEditText: ""
     };
   }
 
@@ -54,10 +60,40 @@ class App extends Component {
     });
   };
 
+  handleEditName = e => {
+    this.setState({
+      currentEditName: e.target.value
+    });
+  };
+
+  handleEditText = e => {
+    this.setState({
+      currentEditText: e.target.value
+    });
+  };
+
   handleDeadline = e => {
     this.setState({
       currentDeadline: e.target.checked
     });
+  };
+
+  handleEdit = (id, e) => {
+    if (!this.state.currentEditState.edit) {
+      this.setState({
+        currentEditState: {
+          id: id,
+          edit: true
+        }
+      });
+    } else {
+      this.setState({
+        currentEditState: {
+          id: "",
+          edit: false
+        }
+      });
+    }
   };
 
   handleSubmit = e => {
@@ -116,7 +152,6 @@ class App extends Component {
   };
 
   handleRemove = (id, e) => {
-    e.preventDefault();
     const updatedTodos = removeTodo(this.state.todos, id);
     this.setState({
       todos: updatedTodos
@@ -133,10 +168,10 @@ class App extends Component {
     return (
       <div className="app">
         <h1 className="todo-h">To-do List</h1>
-        {this.state.errorMessage && (
+        {/* {this.state.errorMessage && (
           <p className="error">{this.state.errorMessage}</p>
         )}
-        {this.state.message && <p className="success">{this.state.message}</p>}
+        {this.state.message && <p className="success">{this.state.message}</p>} */}
         <TodoForm
           handleInputChange={this.handleInputChange}
           handleTextChange={this.handleTextChange}
@@ -154,6 +189,12 @@ class App extends Component {
           handleToggle={this.handleToggle}
           todos={displayTodos}
           handleRemove={this.handleRemove}
+          handleEdit={this.handleEdit}
+          currentEditState={this.state.currentEditState}
+          currentEditName={this.state.currentEditName}
+          currentEditText={this.state.currentEditText}
+          handleEditName={this.handleEditName}
+          handleEditText={this.handleEditText}
         />
       </div>
     );

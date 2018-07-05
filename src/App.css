@@ -29,6 +29,19 @@ p {
   margin-left: 30px;
 }
 
+.todo-item {
+  margin-bottom: 20px;
+  padding: 10px 20px 20px 20px;
+  background-color: #f9f9f9;
+}
+.todo-item .todo-text {
+  width: 330px;
+  height: 150px;
+}
+.todo-item .todo-text:disabled {
+  background-color: #f2f2f2;
+}
+
 form {
   max-width: 300px;
 }
@@ -56,7 +69,7 @@ form {
   display: block;
   width: 300px;
   margin-bottom: 15px;
-  border: none;
+  border: 1px solid #f2f2f2;
   font-size: 18px;
   outline: none;
   padding: 10px;
@@ -69,12 +82,11 @@ form {
 
 .deadline-checkbox input {
   margin-left: 10px;
-  transform: translateY(1px);
 }
 
 .todo-submit {
   display: block;
-  width: 130px;
+  width: 300px;
   height: 40px;
   margin: 0 auto;
   background-color: orange;
@@ -82,6 +94,7 @@ form {
   outline: none;
   font-size: 18px;
   color: #fff;
+  cursor: pointer;
 }
 
 ul {
@@ -92,7 +105,6 @@ ul {
 }
 
 li {
-  line-height: 1.8;
   list-style-type: none;
   text-align: left;
 }
@@ -118,11 +130,18 @@ input[type="checkbox"]:hover {
   color: #84e70a;
 }
 
-span {
-  visibility: hidden;
-}
-
-li:hover span {
+.todo-delete,
+.todo-edit {
   cursor: pointer;
-  visibility: visible;
+  float: right;
+  margin-left: 10px;
+  font-size: 25px;
+  color: #333;
+}
+.todo-header {
+  line-height: 45px;
+}
+span,
+input {
+  vertical-align: middle;
 }
