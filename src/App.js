@@ -69,6 +69,7 @@ class App extends Component {
       text: this.state.currentTodoText,
       importance: this.state.currentImportance,
       deadline: this.state.currentDate,
+      dateEnd: "",
       isComplete: false
     };
     const updatedTodos = addTodo(this.state.todos, newTodo);

@@ -18,6 +18,7 @@ export const TodoItem = props => {
       <p>Важность: {props.importance}</p>
 
       <p>Дедлайн: {deadline}</p>
+      {props.dateEnd && <p>Дата завершения: {props.dateEnd}</p>}
     </li>
   );
 };

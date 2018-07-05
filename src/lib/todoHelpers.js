@@ -14,7 +14,11 @@ export const findById = (id, list) => {
   return list.find(item => item.id === id);
 };
 
-export const toggleTodo = todo => ({ ...todo, isComplete: !todo.isComplete });
+export const toggleTodo = todo => ({
+  ...todo,
+  dateEnd: new Date().toLocaleString("ru"),
+  isComplete: !todo.isComplete
+});
 
 export const updateTodo = (list, updated) => {
   const updatedIndex = list.findIndex(item => item.id === updated.id);
