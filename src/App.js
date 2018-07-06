@@ -81,14 +81,16 @@ class App extends Component {
   };
 
   handleEdit = (todo, e) => {
+    e.target.classList.toggle("edit-now");
+
     if (!this.state.currentEditState.edit) {
       this.setState({
         currentEditState: {
           id: todo[0],
-          edit: true,
-          currentEditName: todo[1],
-          currentEditText: todo[2]
-        }
+          edit: true
+        },
+        currentEditName: todo[1],
+        currentEditText: todo[2]
       });
     } else {
       const getEditTodo = pipe(

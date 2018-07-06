@@ -11,15 +11,34 @@ export const TodoItem = props => {
   ]);
   const deadline = props.deadline ? props.deadline : "время неограничено";
   const editState = props.currentEditState;
-  console.log(editState);
+
   const editHandleIf =
     (editState.edit && editState.id === props.id) ||
     (!editState.edit && editState.id !== props.id)
       ? handleEdit
       : function() {};
 
+  const importance = props.importance;
+  let background = {};
+  switch (importance) {
+    case "высокая":
+      background = {
+        backgroundColor: "#FCC55D"
+      };
+      break;
+    case "средняя":
+      background = {
+        backgroundColor: "#80BFFF"
+      };
+      break;
+    default:
+      background = {
+        backgroundColor: "#8CFF80"
+      };
+  }
+  console.log(background);
   return (
-    <li className="todo-item">
+    <li className="todo-item" style={background}>
       <div className="todo-header">
         <span className="todo-delete" onClick={handleRemove}>
           &#128465;

@@ -23,10 +23,21 @@ p {
 .todo-form {
   padding: 20px 50px;
   margin-bottom: 20px;
+  flex: 0 0 30%;
+  max-width: 30%;
 }
 
 .todo-list {
-  margin-left: 30px;
+  flex: 0 0 70%;
+  max-width: 70%;
+}
+
+@media (max-width: 1200px) {
+  .todo-form,
+  .todo-list {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
 
 .todo-item {
@@ -44,6 +55,7 @@ p {
 
 form {
   max-width: 300px;
+  margin-bottom: 10px;
 }
 
 .todo-h {
@@ -56,10 +68,6 @@ form {
   height: 100px;
   justify-content: center;
   margin-bottom: 20px;
-}
-
-form {
-  margin-bottom: 10px;
 }
 
 .todo-name,
@@ -98,15 +106,15 @@ form {
 }
 
 ul {
-  margin: auto;
-  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
   padding-bottom: 70px;
   padding-left: 0px;
 }
 
 li {
   list-style-type: none;
-  text-align: left;
+  margin-left: 20px;
 }
 
 input[type="checkbox"] {
@@ -137,6 +145,30 @@ input[type="checkbox"]:hover {
   margin-left: 10px;
   font-size: 25px;
   color: #333;
+}
+.todo-edit::selection {
+  background: transparent;
+}
+.todo-edit:after {
+  content: "";
+  display: block;
+  visibility: hidden;
+  width: 1px;
+  height: 1px;
+  background-color: #333;
+  position: absolute;
+  left: 24px;
+  bottom: 15px;
+  transition: height 0.5s ease;
+}
+.todo-edit.edit-now {
+  transform: rotate(90deg);
+  position: relative;
+}
+.todo-edit.edit-now:after {
+  width: 1px;
+  height: 20px;
+  visibility: visible;
 }
 .todo-header {
   line-height: 45px;
