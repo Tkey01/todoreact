@@ -14,10 +14,25 @@ export const findById = (id, list) => {
   return list.find(item => item.id === id);
 };
 
+export const findEdit = (id, list, state1, state2) => {
+  const list2 = [];
+  list2.push(list.find(item => item.id === id));
+  list2.push(state1);
+  list2.push(state2);
+
+  return list2;
+};
+
 export const toggleTodo = todo => ({
   ...todo,
   dateEnd: !todo.isComplete ? new Date().toLocaleString("ru") : "",
   isComplete: !todo.isComplete
+});
+
+export const editTodo = todo => ({
+  ...todo[0],
+  name: todo[1],
+  text: todo[2]
 });
 
 export const updateTodo = (list, updated) => {

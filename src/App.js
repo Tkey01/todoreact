@@ -8,6 +8,8 @@ import {
   toggleTodo,
   updateTodo,
   removeTodo,
+  editTodo,
+  findEdit,
   filterTodos
 } from "./lib/todoHelpers";
 import { pipe, partial } from "./lib/utils";
@@ -78,21 +80,42 @@ class App extends Component {
     });
   };
 
-  handleEdit = (id, e) => {
+  handleEdit = (todo, e) => {
     if (!this.state.currentEditState.edit) {
       this.setState({
         currentEditState: {
-          id: id,
-          edit: true
+          id: todo[0],
+          edit: true,
+          currentEditName: todo[1],
+          currentEditText: todo[2]
         }
       });
     } else {
+      const getEditTodo = pipe(
+        findEdit,
+        editTodo
+      );
+
+      const updated = getEditTodo(
+        todo[0],
+        this.state.todos,
+        this.state.currentEditName,
+        this.state.currentEditText
+      );
+      const getUpdatedTodos = partial(updateTodo, this.state.todos);
+      const updatedTodos = getUpdatedTodos(updated);
       this.setState({
+        todos: updatedTodos,
+        currentEditName: "",
+        currentEditText: "",
         currentEditState: {
           id: "",
           edit: false
         }
       });
+      saveTodo(updated).then(() =>
+        this.showTempMessage("Todo updated in the server")
+      );
     }
   };
 

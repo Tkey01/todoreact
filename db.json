@@ -1,22 +1,3 @@
 {
-  "todos": [
-    {
-      "id": 48138,
-      "name": "123",
-      "text": "",
-      "importance": "высокая",
-      "deadline": "",
-      "dateEnd": "",
-      "isComplete": false
-    },
-    {
-      "id": 86507,
-      "name": "321",
-      "text": "",
-      "importance": "высокая",
-      "deadline": "",
-      "dateEnd": "",
-      "isComplete": false
-    }
-  ]
+  "todos": []
 }

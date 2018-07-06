@@ -4,9 +4,19 @@ import { partial } from "../../lib/utils";
 export const TodoItem = props => {
   const handleToggle = partial(props.handleToggle, props.id);
   const handleRemove = partial(props.handleRemove, props.id);
-  const handleEdit = partial(props.handleEdit, props.id);
+  const handleEdit = partial(props.handleEdit, [
+    props.id,
+    props.name,
+    props.text
+  ]);
   const deadline = props.deadline ? props.deadline : "время неограничено";
-  const edit = props.currentEditState;
+  const editState = props.currentEditState;
+  console.log(editState);
+  const editHandleIf =
+    (editState.edit && editState.id === props.id) ||
+    (!editState.edit && editState.id !== props.id)
+      ? handleEdit
+      : function() {};
 
   return (
     <li className="todo-item">
@@ -14,7 +24,7 @@ export const TodoItem = props => {
         <span className="todo-delete" onClick={handleRemove}>
           &#128465;
         </span>
-        <span className="todo-edit" onClick={handleEdit}>
+        <span className="todo-edit" onClick={editHandleIf}>
           ✎
         </span>
         <input
@@ -22,7 +32,7 @@ export const TodoItem = props => {
           onChange={handleToggle}
           checked={props.isComplete}
         />
-        {edit.edit && edit.id === props.id ? (
+        {editState.edit && editState.id === props.id ? (
           <input
             type="text"
             className="todo-name"
@@ -34,7 +44,7 @@ export const TodoItem = props => {
           <span>{props.name}</span>
         )}
       </div>
-      {edit.edit && edit.id === props.id ? (
+      {editState.edit && editState.id === props.id ? (
         <textarea
           className="todo-text"
           placeholder="Описание"
