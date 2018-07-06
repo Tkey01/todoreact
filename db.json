@@ -1,46 +1,28 @@
 {
   "todos": [
     {
-      "id": 43633,
-      "name": "4124",
-      "text": "",
+      "id": 48828,
+      "name": "Сделать todo лист",
+      "text": "- Сделать то\n- Сделать это",
       "importance": "высокая",
+      "deadline": "2018-07-06",
+      "dateEnd": "",
+      "isComplete": false
+    },
+    {
+      "id": 20699,
+      "name": "bla bla bla",
+      "text": "",
+      "importance": "низкая",
       "deadline": "",
       "dateEnd": "",
       "isComplete": false
     },
     {
-      "id": 84222,
-      "name": "12412",
-      "text": "",
-      "importance": "высокая",
-      "deadline": "",
-      "dateEnd": "",
-      "isComplete": false
-    },
-    {
-      "id": 76824,
-      "name": "41241",
-      "text": "",
+      "id": 36048,
+      "name": "Разобраться с фильтром",
+      "text": "- Изучить react-router\n- Прикрутить фильтр",
       "importance": "средняя",
-      "deadline": "2018-06-30",
-      "dateEnd": "",
-      "isComplete": false
-    },
-    {
-      "id": 71527,
-      "name": "123",
-      "text": "safasf",
-      "importance": "средняя",
-      "deadline": "2018-07-07",
-      "dateEnd": "",
-      "isComplete": false
-    },
-    {
-      "id": 3888,
-      "name": "123",
-      "text": "",
-      "importance": "высокая",
       "deadline": "",
       "dateEnd": "",
       "isComplete": false
