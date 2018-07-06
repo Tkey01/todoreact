@@ -23,13 +23,14 @@ p {
 .todo-form {
   padding: 20px 50px;
   margin-bottom: 20px;
-  flex: 0 0 30%;
-  max-width: 30%;
+  flex: 0 0 400px;
+  max-width: 400px;
 }
 
 .todo-list {
-  flex: 0 0 70%;
-  max-width: 70%;
+  flex: 0 0 calc(100% - 400px);
+  max-width: calc(100% - 400px);
+  padding-right: 20px;
 }
 
 @media (max-width: 1200px) {
@@ -41,12 +42,13 @@ p {
 }
 
 .todo-item {
+  width: 380px;
   margin-bottom: 20px;
   padding: 10px 20px 20px 20px;
   background-color: #f9f9f9;
 }
 .todo-item .todo-text {
-  width: 330px;
+  width: 340px;
   height: 150px;
 }
 .todo-item .todo-text:disabled {
